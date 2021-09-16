@@ -44,7 +44,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Instal YARN dependencies
-        uses: yarn install
+        run: yarn install
 
       - name: Build project for windows
         uses: yarn build:win
