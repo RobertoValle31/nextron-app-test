@@ -8,9 +8,6 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v1
-        with:
-          token: ${{ secrets.MY_TOKEN || github.token }}
-
       - uses: actions/setup-node@master
         with:
           node-version: 14
@@ -23,6 +20,8 @@ jobs:
       - name: see directory
         run: ls
       - uses: lucyio/upload-to-release@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
           name: lucyio/electron
           path: ./electron_dist/squirrel-windows
