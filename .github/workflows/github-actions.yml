@@ -15,12 +15,13 @@ jobs:
       - run: echo "🐧 This job is now running on a ${{ runner.os }}"
       - name: Checkout code
         uses: actions/checkout@v1
-      - name: Install Node.js, NPM and Yarn
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14
+
+      - name: Yarn install
+        run: yarn install
+
       - name: Build project
         run: yarn build:win
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
