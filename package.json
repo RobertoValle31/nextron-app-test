@@ -28,6 +28,10 @@
   },
   "build": {
     "appId": "com.roberto.robertonextronapp",
-    "productName": "Roberto Testing App"
+    "productName": "Roberto Testing App",
+    "target": "NSIS",
+    "directory": {
+      "output": "build"
+    }
   }
 }
