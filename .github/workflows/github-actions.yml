@@ -2,6 +2,9 @@ name: Build/release
 
 on: [ push ]
 
+permissions:
+  contents: write
+
 jobs:
   build_on_win:
     runs-on: windows-2016
