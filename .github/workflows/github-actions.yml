@@ -17,7 +17,7 @@ jobs:
       - name: Build on Windows
         run: yarn build
       - name: Build Electron
-        run: yarn electron:buildWin
+        run: yarn build:win
       - name: see directory
         run: ls ./electron_dist/squirrel-windows
       - uses: lucyio/upload-to-release@master
