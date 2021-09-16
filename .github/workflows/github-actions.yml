@@ -14,20 +14,9 @@ jobs:
           node-version: 14
       - name: Install dependencies
         run: yarn install
-      - name: check env
-        env:
-          ELECTRON: true
-          APP_VERSION_NUMBER: 0.5.9
-        run: set
       - name: Build on Windows
-        env:
-          ELECTRON: true
-          APP_VERSION_NUMBER: 0.5.9
         run: yarn build
       - name: Build Electron
-        env:
-          ELECTRON: true
-          APP_VERSION_NUMBER: 0.5.9
         run: yarn electron:buildWin
       - name: see directory
         run: ls ./electron_dist/squirrel-windows
