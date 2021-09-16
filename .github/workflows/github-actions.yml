@@ -11,7 +11,7 @@ jobs:
       - name: Download project content
         uses: actions/download-artifact@v2
         with:
-          name: cm-project
+          name: cm-exe-file
 
       - name: View content
         run: ls -R
@@ -54,5 +54,5 @@ jobs:
       - name: Upload static project
         uses: actions/upload-artifact@v2
         with:
-          name: cm-project
-          path: dist/
+          name: cm-exe-file
+          path: dist/CM-app ${{ github.run_number }}.exe
