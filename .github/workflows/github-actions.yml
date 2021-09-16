@@ -33,3 +33,4 @@ jobs:
           action: unpublished
           release_id: 0.5.9
           release-repo: lucyio/electron
+
