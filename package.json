@@ -2,7 +2,7 @@
   "private": true,
   "name": "my-nextron-app",
   "description": "My application description",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
   "main": "app/background.js",
   "scripts": {
@@ -25,12 +25,5 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "typescript": "^4.3.5"
-  },
-    "build": {
-    "appId": "com.roberto.robertonextronapp",
-    "productName": "RobertoTestingApp",
-    "win": {
-      "target": "nsis"
-    }
   }
 }
