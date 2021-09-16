@@ -1,44 +1,60 @@
-on:
-  push:
-    tags:
-      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
-
 name: Upload Release Asset
 
+on: push
+
 jobs:
-  build:
-    name: Upload Release Asset
+  release-project:
+    name: Release project to GitHub
     runs-on: windows-2016
+    needs: build-project
     steps:
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }}"
-      - name: Checkout code
-        uses: actions/checkout@v1
+      - name: Download project content
+        uses: actions/download-artifact@v2
+        with:
+          name: cm-project
 
-      - name: Yarn install
-        run: yarn install
+      - name: View content
+        run: ls -R
 
-      - name: Build project
-        run: yarn build:win
-
-      - name: Create Release
-        id: create_release
+      - name: Create GitHub release
+        id: create-new-release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-      - name: Upload Release Asset
-        id: upload-release-asset
+          tag_name: ${{ github.run_number }}
+          release_name: Release ${{ github.run_number }}
+
+      - name: Archive site content
+        uses: thedoctor0/zip-release@master
+        with:
+          filename: site.zip
+
+      - name: Upload release asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist
-          asset_name: program.exe
-          asset_content_type: application/exe
+          upload_url: ${{ steps.create-new-release.outputs.upload_url }}
+          asset_path: ./site.zip
+          asset_name: site-v${{ github.run_number }}.zip
+          asset_content_type: application/zip
+
+  build-project:
+    name: Build electron application
+    runs-on: windows-2016
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Instal YARN dependencies
+        uses: yarn install
+
+      - name: Build project for windows
+        uses: yarn build:win
+
+      - name: Upload static project
+        uses: actions/upload-artifact@v2
+        with:
+          name: cm-project
+          path: dist/
