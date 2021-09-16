@@ -12,18 +12,18 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: cm-exe-file
+          env:
+            FILE: cm-exe-file
 
       - name: View content
         run: ls -R
 
-      - name: Test
-        run: cat cm-exe-file
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{github.run_number}}
           name: Release ${{github.run_number}}
-          files: cm-exe-file
+          files: $FILE
 
   build-project:
     name: Build electron application
