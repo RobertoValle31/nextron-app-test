@@ -1,6 +1,10 @@
 name: Build/release
 
-on: push
+on: [pull_request_target]
+
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   build_on_win:
@@ -8,6 +12,8 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/setup-node@master
         with:
@@ -21,10 +27,7 @@ jobs:
       - name: see directory
         run: ls
       - uses: lucyio/upload-to-release@master
-        permission:
-          contents: write
         with:
-          repo-token: ${{ secrets.MY_TOKEN || github.token }}
           name: lucyio/electron
           path: ./electron_dist/squirrel-windows
           action: unpublished
