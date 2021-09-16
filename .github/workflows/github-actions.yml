@@ -16,25 +16,11 @@ jobs:
       - name: View content
         run: ls -R
 
-      - name: Create GitHub release
-        id: create-new-release-v${{ github.run_number }}
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.run_number }}
-          release_name: Release ${{ github.run_number }}
-
-      - name: Archive site content
-        uses: thedoctor0/zip-release@master
-        with:
-          filename: project.zip
-
-      - name: Upload release asset
+      - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: project.zip
+          files: cm-exe-file
 
   build-project:
     name: Build electron application
