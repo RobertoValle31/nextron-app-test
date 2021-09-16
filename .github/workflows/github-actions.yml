@@ -19,11 +19,11 @@ jobs:
       - name: Build Electron
         run: yarn build:win
       - name: see directory
-        run: ls ./electron_dist/squirrel-windows
+        run: ls ./electron_dist
       - uses: lucyio/upload-to-release@master
         with:
           name: lucyio/electron
-          path: ./electron_dist/squirrel-windows
+          path: ./electron_dist
           action: unpublished
           release_id: 0.5.9
           release-repo: lucyio/electron
