@@ -1,6 +1,6 @@
 name: Build/release
 
-on: [ push ]
+on: [push]
 
 permissions:
   contents: write
@@ -9,7 +9,7 @@ jobs:
   build_on_win:
     runs-on: windows-2016
     permissions:
-    issues: write
+      issues: write
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v1
@@ -32,4 +32,3 @@ jobs:
           action: unpublished
           release_id: 0.5.9
           release-repo: lucyio/electron
-
