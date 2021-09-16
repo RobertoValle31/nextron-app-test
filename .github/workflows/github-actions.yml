@@ -17,7 +17,7 @@ jobs:
         run: ls -R
 
       - name: Test
-        run: cm-exe-file
+        run: cat cm-exe-file
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
