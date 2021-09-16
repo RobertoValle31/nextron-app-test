@@ -29,9 +29,9 @@
   "build": {
     "appId": "com.roberto.robertonextronapp",
     "productName": "Roberto Testing App",
-    "target": "NSIS",
-    "directory": {
-      "output": "build"
+    "win": {
+      "target": "nsis",
+      "category": "public.app-category.productivity"
     }
   }
 }
