@@ -8,8 +8,6 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v1
-        with:
-          token: ${{ secrets.MY_TOKEN || github.token }}
 
       - uses: actions/setup-node@master
         with:
@@ -24,6 +22,7 @@ jobs:
         run: ls
       - uses: lucyio/upload-to-release@master
         with:
+          token: ${{ secrets.MY_TOKEN || github.token }}
           name: lucyio/electron
           path: ./electron_dist/squirrel-windows
           action: unpublished
