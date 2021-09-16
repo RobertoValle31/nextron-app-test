@@ -30,8 +30,7 @@
     "appId": "com.roberto.robertonextronapp",
     "productName": "Roberto Testing App",
     "win": {
-      "target": "nsis",
-      "category": "public.app-category.productivity"
+      "target": "nsis"
     }
   }
 }
