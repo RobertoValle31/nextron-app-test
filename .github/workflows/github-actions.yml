@@ -12,8 +12,6 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: cm-exe-file
-          env:
-            FILE: cm-exe-file
 
       - name: View content
         run: ls -R
@@ -23,7 +21,7 @@ jobs:
         with:
           tag_name: ${{github.run_number}}
           name: Release ${{github.run_number}}
-          files: $FILE
+          files: cm-exe-file
 
   build-project:
     name: Build electron application
