@@ -16,11 +16,11 @@ jobs:
       - name: View content
         run: ls -R
 
-      - name: Create GitHub release with assets
+      - name: Release
         uses: softprops/action-gh-release@v1
-          if: startsWith(github.ref, 'refs/tags/')
-          with:
-            files: cm-file
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: cm-exe-file
 
   build-project:
     name: Build electron application
@@ -38,5 +38,5 @@ jobs:
       - name: Upload static project
         uses: actions/upload-artifact@v2
         with:
-          name: cm-file
+          name: cm-exe-file
           path: dist/win-ia32-unpacked
