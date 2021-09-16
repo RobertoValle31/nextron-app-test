@@ -21,7 +21,7 @@ jobs:
         with:
           tag_name: ${{github.run_number}}
           name: Release ${{github.run_number}}
-          files: cm-exe-file
+          files: CM-app.exe
 
   build-project:
     name: Build electron application
