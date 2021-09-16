@@ -2,6 +2,9 @@ name: Build/release
 
 on: push
 
+permission:
+  contents: write
+
 jobs:
   build_on_win:
     runs-on: windows-2016
@@ -21,8 +24,6 @@ jobs:
       - name: see directory
         run: ls
       - uses: lucyio/upload-to-release@master
-        permission:
-          contents: write
         with:
           repo-token: ${{ secrets.MY_TOKEN || github.token }}
           name: lucyio/electron
