@@ -12,11 +12,12 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: cm-exe-file
-          path: cm-exe-file
 
       - name: View content
         run: ls -R
 
+      - name: Test
+        run: cm-exe-file
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
