@@ -6,9 +6,10 @@ jobs:
   build_on_win:
     runs-on: windows-2016
     steps:
-      token: ${{ secrets.MY_TOKEN || github.token }}
       - name: Check out Git repository
         uses: actions/checkout@v1
+        with:
+          token: ${{ secrets.MY_TOKEN || github.token }}
 
       - uses: actions/setup-node@master
         with:
