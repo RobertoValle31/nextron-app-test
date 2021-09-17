@@ -6,6 +6,8 @@ jobs:
   build-project:
     name: Build application
     runs-on: ubuntu-latest
+    if: "!contains(github.event.commits[0].message, 'ci: version bump')"
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
