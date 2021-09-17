@@ -1,0 +1,15 @@
+name: Pull Request flow
+
+jobs:
+  build-project:
+    name: Build application
+    runs-on: windows-2016
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Instal YARN dependencies
+        run: yarn install
+
+      - name: Build project for windows
+        run: yarn build:win
