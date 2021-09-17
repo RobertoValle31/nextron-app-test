@@ -1,14 +1,14 @@
-name: Upload Release Asset
+name: Release flow
 
 on:
   push:
     branches:
-      - main
       - develop
+      - main
 
 jobs:
   build-project:
-    name: Build electron application
+    name: Build and release application
     runs-on: windows-2016
     steps:
       - name: Checkout code
