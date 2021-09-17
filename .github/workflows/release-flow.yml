@@ -39,9 +39,14 @@ jobs:
           files: dist/win-ia32-unpacked
           dest: connect-marketing.zip
 
+      - name: Extract version
+        id: extract_version
+        uses: Saionaro/extract-package-version@v1.0.6
+      # From now you can access the version
+
       - name: Release project files to GitHub
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{github.run_number}}
-          name: Release ${{github.run_number}}
+          tag_name: ${{steps.extract_version.outputs.version}}
+          name: Release v.1.0.${{steps.extract_version.outputs.version}}
           files: connect-marketing.zip
