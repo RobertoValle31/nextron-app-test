@@ -43,7 +43,7 @@ function Home() {
           </DialogActions>
         </Dialog>
         <Typography variant="h4" gutterBottom>
-          Material-UI
+          Connect Marketing
         </Typography>
         <Typography variant="subtitle1" gutterBottom>
           with Nextron
