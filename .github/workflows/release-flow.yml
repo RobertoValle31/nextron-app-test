@@ -7,15 +7,12 @@ on:
       - main
 
 jobs:
-  build-project:
-    name: Build and release application
+  bump-version:
+    name: Bump the package version
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Instal YARN dependencies
-        run: yarn install
 
       - name: "cat package.json"
         run: cat ./package.json
@@ -29,6 +26,17 @@ jobs:
 
       - name: "cat package.json"
         run: cat ./package.json
+
+  build-project:
+    name: Build and release application
+    runs-on: windows-2016
+    needs: bump-version
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Instal YARN dependencies
+        run: yarn install
 
       - name: Build project for windows
         run: yarn build:win
