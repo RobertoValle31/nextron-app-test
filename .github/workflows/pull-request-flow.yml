@@ -3,11 +3,9 @@ name: Pull Request flow
 on: [pull_request]
 
 jobs:
-  build-project:
-    name: Build application
-    runs-on: ubuntu-latest
-    if: "!contains(github.event.commits[0].message, 'ci: version bump')"
-
+  check-version:
+    name: Check-release-version
+    runs-on: ubuntu-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -17,8 +15,23 @@ jobs:
         uses: Saionaro/extract-package-version@v1.0.6
       # From now you can access the version
 
+      - name: Get Latest Release
+        id: latest_version
+        uses: abatilo/release-info-action@v1.3.0
+        with:
+          owner: abatilo
+          repo: release-info-action
+
       - name: Print version
-        run: echo ${{ steps.extract_version.outputs.version }}
+        run: echo "package version ${{ steps.extract_version.outputs.version }} / latest release version  ${{ steps.latest_version.outputs.latest_tag }} "
+
+  build-project:
+    name: Build application
+    runs-on: ubuntu-latest
+    needs: check-version
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Instal YARN dependencies
         run: yarn install
