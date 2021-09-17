@@ -7,12 +7,18 @@ on:
       - main
 
 jobs:
-  bump-version:
-    name: Bump the package version
-    runs-on: ubuntu-latest
+  build-project:
+    name: Build and release application
+    runs-on: windows-2016
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Instal YARN dependencies
+        run: yarn install
+
+      - name: Build project for windows
+        run: yarn build:win
 
       - name: "cat package.json"
         run: cat ./package.json
@@ -26,20 +32,6 @@ jobs:
 
       - name: "cat package.json"
         run: cat ./package.json
-
-  build-project:
-    name: Build and release application
-    runs-on: windows-2016
-    needs: bump-version
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Instal YARN dependencies
-        run: yarn install
-
-      - name: Build project for windows
-        run: yarn build:win
 
       - name: Zip the files
         uses: papeloto/action-zip@v1
