@@ -5,7 +5,7 @@ on: [pull_request]
 jobs:
   check-version:
     name: Check-release-version
-    runs-on: ubuntu-
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
