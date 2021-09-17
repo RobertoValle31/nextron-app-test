@@ -12,6 +12,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Extract version
+        id: extract_version
+        uses: Saionaro/extract-package-version@v1.0.6
+      # From now you can access the version
+
+      - name: Print version
+        run: echo ${{ steps.extract_version.outputs.version }}
+
       - name: Instal YARN dependencies
         run: yarn install
 
