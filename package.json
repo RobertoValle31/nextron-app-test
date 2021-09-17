@@ -7,8 +7,7 @@
   "main": "app/background.js",
   "scripts": {
     "dev": "nextron",
-    "build": "nextron build",
-    "build:win": "nextron build --win --ia32"
+    "build": "nextron build"
   },
   "dependencies": {
     "electron-serve": "^1.1.0",
