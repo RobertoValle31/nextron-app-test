@@ -1,5 +1,10 @@
 name: Pull Request flow
 
+<<<<<<< Updated upstream
+=======
+on: [push]
+
+>>>>>>> Stashed changes
 jobs:
   build-project:
     name: Build application
