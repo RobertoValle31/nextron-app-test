@@ -9,7 +9,7 @@ on:
 jobs:
   build-project:
     name: Build and release application
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-latest, windows-2016]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
