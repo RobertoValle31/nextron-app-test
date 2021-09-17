@@ -1,6 +1,10 @@
 name: Upload Release Asset
 
-on: push
+on:
+  push:
+    branches:
+      - main
+      - develop
 
 jobs:
   build-project:
