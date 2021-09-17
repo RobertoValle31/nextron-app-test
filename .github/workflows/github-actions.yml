@@ -37,4 +37,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: cm-exe-file
-          path: dist/win-ia32-unpacked.zip
+          path: dist/win-ia32-unpacked
