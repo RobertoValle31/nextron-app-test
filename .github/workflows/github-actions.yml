@@ -3,23 +3,6 @@ name: Upload Release Asset
 on: push
 
 jobs:
-  release-project:
-    name: Release project to GitHub
-    runs-on: windows-2016
-    needs: build-project
-    steps:
-      - name: Download project content
-        uses: actions/download-artifact@v2
-        with:
-          name: cm-exe-file
-
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{github.run_number}}
-          name: Release ${{github.run_number}}
-          files: cm-exe-file
-
   build-project:
     name: Build electron application
     runs-on: windows-2016
@@ -33,8 +16,21 @@ jobs:
       - name: Build project for windows
         run: yarn build:win
 
-      - name: Upload static project
-        uses: actions/upload-artifact@v2
+  zip-files:
+    name: Upload files to GitHub
+    runs-on: windows-2016
+    needs: build-project
+    steps:
+      - uses: actions/checkout@v2
+      - name: Zip the files
+        uses: papeloto/action-zip@v1
         with:
-          name: cm-exe-file
-          path: dist/win-ia32-unpacked
+          files: dist/win-ia32-unpacked
+          dest: cm-exe-file
+
+      - name: Release project files to GitHub
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{github.run_number}}
+          name: Release ${{github.run_number}}
+          files: cm-exe-file
