@@ -43,10 +43,10 @@ function Home() {
           </DialogActions>
         </Dialog>
         <Typography color="primary" variant="h4" gutterBottom>
-          Connect Marketing Updater Testing !!!
+          Connect Marketing IS WORKING !!!
         </Typography>
-        <Typography color="secondary" variant="subtitle2" gutterBottom>
-          Version: 1.0.24
+        <Typography color="primary" variant="subtitle2" gutterBottom>
+          Version: 1.0.25
         </Typography>
         <img src="/images/logo.png" />
         <Typography gutterBottom>
