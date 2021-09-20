@@ -46,7 +46,7 @@ function Home() {
           Connect Marketing IS WORKING !!!
         </Typography>
         <Typography color="primary" variant="subtitle2" gutterBottom>
-          Version: 1.0.25
+          Version: 1.0.26
         </Typography>
         <img src="/images/logo.png" />
         <Typography gutterBottom>
