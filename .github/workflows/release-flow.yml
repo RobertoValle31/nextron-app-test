@@ -18,6 +18,8 @@ jobs:
 
       - name: Build project for windows
         run: yarn build:win
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Zip the files
         uses: papeloto/action-zip@v1
