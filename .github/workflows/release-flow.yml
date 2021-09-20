@@ -1,15 +1,14 @@
-name: Release flow
+name: Production release flow
 
 on:
   push:
     branches:
-      - develop
       - main
 
 jobs:
   build-project:
     name: Build and release application
-    runs-on: ubuntu-latest
+    runs-on: windows-2016
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -18,7 +17,7 @@ jobs:
         run: yarn install
 
       - name: Build project for windows
-        run: yarn build
+        run: yarn build:win
 
       - name: Zip the files
         uses: papeloto/action-zip@v1
@@ -35,5 +34,5 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{steps.extract_version.outputs.version}}
-          name: Release v.1.0.${{steps.extract_version.outputs.version}}
+          name: Release v.${{steps.extract_version.outputs.version}}
           files: connect-marketing.zip
