@@ -27,13 +27,13 @@ if (isProd) {
     await mainWindow.loadURL(`http://localhost:${port}/home`);
     mainWindow.webContents.openDevTools();
   }
-
-  // This will immediately download an update, then install when the app quits.
-  app.on("ready", function () {
-    console.log("updating....");
-    autoUpdater.checkForUpdatesAndNotify();
-  });
 })();
+
+// This will immediately download an update, then install when the app quits.
+app.on("ready", function () {
+  console.log("updating....");
+  autoUpdater.checkForUpdatesAndNotify();
+});
 
 app.on("window-all-closed", () => {
   app.quit();
