@@ -42,11 +42,11 @@ function Home() {
             </Button>
           </DialogActions>
         </Dialog>
-        <Typography variant="h4" gutterBottom>
-          Connect Marketing
+        <Typography color="primary" variant="h4" gutterBottom>
+          Connect Marketing Updater Testing !!!
         </Typography>
-        <Typography variant="subtitle2" gutterBottom>
-          Version: 1.0.22
+        <Typography color="secondary" variant="subtitle2" gutterBottom>
+          Version: 1.0.23
         </Typography>
         <img src="/images/logo.png" />
         <Typography gutterBottom>
