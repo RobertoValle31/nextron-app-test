@@ -46,7 +46,7 @@ function Home() {
           Connect Marketing
         </Typography>
         <Typography variant="subtitle2" gutterBottom>
-          Version: 1.0.21
+          Version: 1.0.22
         </Typography>
         <img src="/images/logo.png" />
         <Typography gutterBottom>
