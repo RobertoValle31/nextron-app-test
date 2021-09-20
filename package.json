@@ -36,7 +36,8 @@
     "win": {
       "target": [
         "nsis"
-      ]
+      ],
+      "publish": ["github", "bintray"]
     },
     "nsis": {
       "oneClick": false,
