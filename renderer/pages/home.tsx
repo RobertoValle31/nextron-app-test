@@ -46,7 +46,7 @@ function Home() {
           Connect Marketing Opticpower
         </Typography>
         <Typography color="primary" variant="subtitle2" gutterBottom>
-          Version: 1.0.28
+          Version: 1.0.29
         </Typography>
         <img src="/images/logo.png" />
         <Typography gutterBottom>
