@@ -18,11 +18,13 @@ jobs:
 
       - name: Build project for windows
         run: yarn build:win
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Zip the files
         uses: papeloto/action-zip@v1
         with:
-          files: dist/win-ia32-unpacked
+          files: dist
           dest: connect-marketing.zip
 
       - name: Extract version

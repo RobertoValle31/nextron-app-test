@@ -46,7 +46,7 @@ function Home() {
           Connect Marketing Updater Testing !!!
         </Typography>
         <Typography color="secondary" variant="subtitle2" gutterBottom>
-          Version: 1.0.23
+          Version: 1.0.24
         </Typography>
         <img src="/images/logo.png" />
         <Typography gutterBottom>
