@@ -2,7 +2,7 @@
   "private": true,
   "name": "my-nextron-app",
   "description": "My application description",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
   "main": "app/background.js",
   "scripts": {
@@ -36,6 +36,10 @@
     "win": {
       "target": [
         "nsis"
+      ],
+      "publish": [
+        "github",
+        "bintray"
       ]
     },
     "nsis": {
