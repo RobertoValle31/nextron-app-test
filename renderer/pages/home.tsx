@@ -43,10 +43,10 @@ function Home() {
           </DialogActions>
         </Dialog>
         <Typography color="primary" variant="h4" gutterBottom>
-          Connect Marketing IS WORKING !!!
+          Connect Marketing Opticpower
         </Typography>
         <Typography color="primary" variant="subtitle2" gutterBottom>
-          Version: 1.0.27
+          Version: 1.0.28
         </Typography>
         <img src="/images/logo.png" />
         <Typography gutterBottom>
