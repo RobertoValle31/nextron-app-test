@@ -14,7 +14,6 @@ if (isProd) {
 
 (async () => {
   await app.whenReady();
-
   const mainWindow = createWindow("main", {
     width: 1000,
     height: 600,
@@ -29,10 +28,9 @@ if (isProd) {
   }
 })();
 
-// This will immediately download an update, then install when the app quits.
 app.on("ready", function () {
   console.log("updating....");
-  autoUpdater.checkForUpdatesAndNotify();
+  autoUpdater.checkForUpdates();
 });
 
 app.on("window-all-closed", () => {

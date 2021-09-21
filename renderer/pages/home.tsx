@@ -46,7 +46,7 @@ function Home() {
           Opticpower Rocks!!!
         </Typography>
         <Typography color="primary" variant="subtitle2" gutterBottom>
-          Version: 1.0.30
+          Version: 1.0.31
         </Typography>
         <img src="/images/logo.png" />
         <Typography gutterBottom>
