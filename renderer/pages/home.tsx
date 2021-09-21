@@ -46,7 +46,7 @@ function Home() {
           IS WORKING????????
         </Typography>
         <Typography color="primary" variant="subtitle2" gutterBottom>
-          Version: 1.0.34
+          Version: 1.0.35
         </Typography>
         <img src="/images/logo.png" />
         <Typography gutterBottom>
