@@ -29,10 +29,12 @@ if (isProd) {
 })();
 
 app.on("ready", function () {
+  console.log("Checking for updates...");
   autoUpdater.checkForUpdates();
 });
 
 autoUpdater.on("update-downloaded", (info) => {
+  console.log("Installing updates...");
   autoUpdater.quitAndInstall();
 });
 
