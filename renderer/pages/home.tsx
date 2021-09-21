@@ -46,7 +46,7 @@ function Home() {
           Opticpower is WORKING!!!
         </Typography>
         <Typography color="primary" variant="subtitle2" gutterBottom>
-          Version: 1.0.32
+          Version: 1.0.33
         </Typography>
         <img src="/images/logo.png" />
         <Typography gutterBottom>

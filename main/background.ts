@@ -29,8 +29,13 @@ if (isProd) {
 })();
 
 app.on("ready", function () {
-  console.log("updating....");
+  console.log("Checking for updates...");
   autoUpdater.checkForUpdates();
+});
+
+autoUpdater.on("update-downloaded", (info) => {
+  console.log("Installing updates...");
+  autoUpdater.quitAndInstall();
 });
 
 app.on("window-all-closed", () => {
