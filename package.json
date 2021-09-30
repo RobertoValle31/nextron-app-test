@@ -14,6 +14,11 @@
     "build:win": "nextron build --win --ia32",
     "publish":"electron-builder -p always"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+		"tag": "next"
+  },
   "dependencies": {
     "electron-log": "^4.4.1",
     "electron-serve": "^1.1.0",
