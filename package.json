@@ -11,7 +11,8 @@
     "postinstall": "electron-builder install-app-deps",
     "cm": "npx git-cz",
     "type-check": "tsc",
-    "build:win": "nextron build --win --ia32 --publish always"
+    "build:win": "nextron build --win --ia32",
+    "publish":"electron-builder -p always"
   },
   "dependencies": {
     "electron-log": "^4.4.1",

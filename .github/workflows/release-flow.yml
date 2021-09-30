@@ -21,6 +21,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Publish project for windows
+        run: yarn publish
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Zip the files
         uses: papeloto/action-zip@v1
         with:
