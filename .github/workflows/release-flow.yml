@@ -13,6 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set node version
+        uses: actions/setup-node@v1
+        with:
+          always-auth: true
+          node-version: 14
+          registry-url: "https://npm.pkg.github.com"
+
       - name: Instal YARN dependencies
         run: yarn install
 
